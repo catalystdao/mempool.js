@@ -1,6 +1,6 @@
 {
-  "name": "@mempool/mempool.js",
-  "version": "2.3.0",
+  "name": "@catalabs/mempool.js",
+  "version": "2.3.3",
   "description": "NPM package module for Mempool APIs.",
   "main": "lib/index.js",
   "keywords": [
@@ -30,12 +30,13 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon src/index.ts",
-    "build": "tsc",
+    "build": "tsc -b",
     "export-mempool-js": "tsc | browserify -p esmify lib/index.js --standalone mempoolJS > dist/mempool.js | browserify -p tinyify -p esmify lib/index.js --standalone mempoolJS > dist/mempool.min.js",
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },
   "files": [
+    "lib",
     "lib/**/*"
   ],
   "dependencies": {

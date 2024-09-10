@@ -8,9 +8,11 @@ export const makeBitcoinAPI = ({
   config,
 }: MempoolConfig): { api: AxiosInstance } => {
   if (!protocol) {
-    hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
+    hostname?.includes('localhost')
+      ? (protocol = 'http')
+      : (protocol = 'https');
   }
-  if (network && ['testnet', 'signet'].includes(network)) {
+  if (network && ['testnet', 'testnet4', 'signet'].includes(network)) {
     network = `/${network}`;
   } else {
     network = '';
@@ -31,7 +33,9 @@ export const makeLiquidAPI = ({
   config,
 }: MempoolConfig): { api: AxiosInstance } => {
   if (!protocol) {
-    hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
+    hostname?.includes('localhost')
+      ? (protocol = 'http')
+      : (protocol = 'https');
   }
   if (network && ['testnet', 'liquidtestnet'].includes(network)) {
     network = `/liquidtestnet`;
